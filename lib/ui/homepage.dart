@@ -1,7 +1,55 @@
+import 'package:ecommerce_platform_crio_do/ui/wishlist.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:flutter/painting.dart';
+
+List<Widget> products = [
+  Padding(
+    padding: const EdgeInsets.only(left:18.0, right: 18.0),
+    child: Row(
+      children: [
+        Container(
+          height: 150.0,
+          width: 150.0,
+          clipBehavior: Clip.antiAlias,
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
+        ),
+        Container(
+          height: 150.0,
+          width: 150.0,
+          decoration: BoxDecoration(
+            color: Colors.green,
+          ),
+        ),
+      ],
+    ),
+  ),
+  SizedBox(
+    height: 15.0,
+  ),
+  Row(
+    children: [
+      Container(
+        height: 50.0,
+        width: 50.0,
+        decoration: BoxDecoration(
+          color: Colors.blue,
+        ),
+      ),
+      Container(
+        height: 50.0,
+        width: 50.0,
+        decoration: BoxDecoration(
+          color: Colors.green,
+        ),
+      ),
+    ],
+  )
+];
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,18 +62,24 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title:
-          Text(
+          title: Text(
             'Porsio',
             style: TextStyle(
-            fontSize: 25.0,),
+              fontSize: 25.0,
+            ),
           ),
           actions: [
-            Icon(Icons.location_on_outlined,size: 28.0,),
+            Icon(
+              Icons.location_on_outlined,
+              size: 28.0,
+            ),
             SizedBox(
               width: 10.0,
             ),
-            Icon(Icons.shopping_cart, size: 28.0,),
+            Icon(
+              Icons.shopping_cart,
+              size: 28.0,
+            ),
             SizedBox(
               width: 20.0,
             ),
@@ -40,14 +94,15 @@ class _HomePageState extends State<HomePage> {
                 height: 180.0,
                 width: 310.0,
                 decoration: BoxDecoration(
-                  color: Colors.deepPurple,
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(30.0),),
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomRight,
-                    colors: [Colors.pink, Colors.purple],
-                  )
-                ),
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(30.0),
+                    ),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.pink, Colors.purple],
+                    )),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -83,21 +138,32 @@ class _HomePageState extends State<HomePage> {
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(Icons.favorite, size: 28.0,),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Text(
-                          'Wishlist',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 24.0
+                    GestureDetector(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.favorite,
+                            size: 28.0,
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            width: 20.0,
+                          ),
+                          Text(
+                            'Wishlist',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 24.0),
+                          ),
+                        ],
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Wishlist(),
+                          ),
+                        );
+                      },
                     ),
                     SizedBox(
                       height: 12.0,
@@ -105,12 +171,15 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(Icons.feedback_rounded, size: 28.0,),
+                        Icon(
+                          Icons.feedback_rounded,
+                          size: 28.0,
+                        ),
                         SizedBox(
                           width: 20.0,
                         ),
                         Text(
-                            'Feedback',
+                          'Feedback',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w400,
@@ -124,16 +193,17 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(Icons.logout, size: 28.0,),
+                        Icon(
+                          Icons.logout,
+                          size: 28.0,
+                        ),
                         SizedBox(
                           width: 20.0,
                         ),
                         Text(
-                            'Logout',
+                          'Logout',
                           style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 24.0
-                          ),
+                              fontWeight: FontWeight.w400, fontSize: 24.0),
                         ),
                       ],
                     ),
@@ -143,12 +213,15 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(Icons.help_rounded, size: 28.0,),
+                        Icon(
+                          Icons.help_rounded,
+                          size: 28.0,
+                        ),
                         SizedBox(
                           width: 20.0,
                         ),
                         Text(
-                            'Help',
+                          'Help',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w400,
@@ -163,14 +236,16 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         backgroundColor: Colors.white,
-        body: Column(
+        body: ListView(
           children: [
             Container(
               alignment: Alignment.center,
               height: 80.0,
               decoration: BoxDecoration(
-                  color: Colors.deepPurple,
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(30.0),),
+                color: Colors.deepPurple,
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(30.0),
+                ),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
@@ -191,22 +266,17 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(38.0),
                         borderSide: BorderSide(
                           color: Colors.white,
-                        )
-                    ),
+                        )),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(38.0),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(38.0),
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      )
-                    ),
+                        borderRadius: BorderRadius.circular(38.0),
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        )),
                     hintText: 'Search',
-                    hintStyle: TextStyle(
-                      fontSize: 18.0,
-                      height: 2.7
-                    ),
+                    hintStyle: TextStyle(fontSize: 18.0, height: 2.7),
                   ),
                 ),
               ),
@@ -238,7 +308,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left:4.0),
+                          padding: const EdgeInsets.only(left: 4.0),
                           child: Text(
                             'Change',
                             style: TextStyle(
@@ -249,7 +319,10 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 4.0),
-                          child: Icon(Icons.location_on, size: 18.0,),
+                          child: Icon(
+                            Icons.location_on,
+                            size: 18.0,
+                          ),
                         )
                       ],
                     ),
@@ -261,36 +334,120 @@ class _HomePageState extends State<HomePage> {
               height: 10.0,
             ),
             Padding(
-              padding: const EdgeInsets.only(left:8.0),
+              padding: const EdgeInsets.only(left: 8.0),
               child: Container(
                 height: 100.0,
                 child: ListView(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   children: [
-                    storeNearby(icon: Icon(Icons.shop, color: Colors.black, size: 45.0,), text: 'Pan Shop',),
+                    storeNearby(
+                      icon: Icon(
+                        Icons.shop,
+                        color: Colors.black,
+                        size: 45.0,
+                      ),
+                      text: 'Pan Shop',
+                    ),
                     SizedBox(
                       width: 12.0,
                     ),
-                    storeNearby(icon: Icon(Icons.voicemail_outlined, color: Colors.black, size: 45.0,), text: 'Clothing debug',),
+                    storeNearby(
+                      icon: Icon(
+                        Icons.voicemail_outlined,
+                        color: Colors.black,
+                        size: 45.0,
+                      ),
+                      text: 'Clothing debug',
+                    ),
                     SizedBox(
                       width: 12.0,
                     ),
-                    storeNearby(icon: Icon(Icons.panorama, color: Colors.black, size: 45.0,), text: 'Dummy Shoe',),
+                    storeNearby(
+                      icon: Icon(
+                        Icons.panorama,
+                        color: Colors.black,
+                        size: 45.0,
+                      ),
+                      text: 'Dummy Shoe',
+                    ),
                     SizedBox(
                       width: 12.0,
                     ),
-                    storeNearby(icon: Icon(Icons.mobile_friendly_sharp, color: Colors.black, size: 45.0,), text: 'Testing',),
+                    storeNearby(
+                      icon: Icon(
+                        Icons.mobile_friendly_sharp,
+                        color: Colors.black,
+                        size: 45.0,
+                      ),
+                      text: 'Testing',
+                    ),
                     SizedBox(
                       width: 12.0,
                     ),
-                    storeNearby(icon: Icon(Icons.square_foot, color: Colors.black, size: 45.0,), text: 'Footwear Debug',),
+                    storeNearby(
+                      icon: Icon(
+                        Icons.square_foot,
+                        color: Colors.black,
+                        size: 45.0,
+                      ),
+                      text: 'Footwear Debug',
+                    ),
                     SizedBox(
                       width: 12.0,
                     ),
-                    storeNearby(icon: Icon(Icons.sports_football, color: Colors.black, size: 45.0,), text: 'Football',),
+                    storeNearby(
+                      icon: Icon(
+                        Icons.sports_football,
+                        color: Colors.black,
+                        size: 45.0,
+                      ),
+                      text: 'Football',
+                    ),
                   ],
                 ),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 18.0, right: 18.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Super Offers',
+                    style: TextStyle(
+                      fontSize: 28.0,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  Container(
+                    height: 30.0,
+                    width: 80.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40.0),
+                      border: Border.all(color: Colors.black, width: 2.0),
+                      color: Colors.white,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4.0),
+                          child: Text(
+                            'View all',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
             SizedBox(
@@ -343,7 +500,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Super Offers',
+                    'Products',
                     style: TextStyle(
                       fontSize: 28.0,
                       fontWeight: FontWeight.w800,
@@ -361,9 +518,9 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left:4.0),
+                          padding: const EdgeInsets.only(left: 4.0),
                           child: Text(
-                            'View all',
+                            'Explore all',
                             style: TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 14.0,
@@ -373,6 +530,65 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 18.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left:18.0, right: 18.0,),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 150.0,
+                    width: 150.0,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Image(image: AssetImage('images/perfume.jpg'),),
+                  ),
+                  Container(
+                    height: 150.0,
+                    width: 150.0,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Image(image: AssetImage('images/sneaker.jpg'),),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left:18.0, right: 18.0,),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 150.0,
+                    width: 150.0,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Image(image: AssetImage('images/dress2.jpg'), fit: BoxFit.cover,),
+                  ),
+                  Container(
+                    height: 150.0,
+                    width: 150.0,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Image(image: AssetImage('images/heel2.png'),),
+                  ),
                 ],
               ),
             ),
@@ -402,10 +618,9 @@ class storeNearby extends StatelessWidget {
           backgroundColor: Colors.pinkAccent,
           child: icon,
         ),
-        Text('text',
-          style: TextStyle(
-              fontSize: 12.0
-          ),
+        Text(
+          'text',
+          style: TextStyle(fontSize: 12.0),
         ),
       ],
     );

@@ -1,5 +1,6 @@
 import 'package:ecommerce_platform_crio_do/ui/discover.dart';
 import 'package:ecommerce_platform_crio_do/ui/orders.dart';
+import 'package:ecommerce_platform_crio_do/ui/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'ui/homepage.dart';
