@@ -25,6 +25,10 @@ dependencies:
     sdk: flutter
   curved_navigation_bar: ^0.3.7
   carousel_pro: ^1.0.0
+  floating_action_bubble: 1.0.9
+  flutter_speed_dial: ^2.1.1
+  google_fonts: ^1.1.2
+  flutter_icons: ^1.1.0
 #  english_words: ^3.1.0
 #  carousel_pro: ^1.0.0
 #  firebase_auth: ^0.16.0
@@ -95,7 +99,7 @@ flutter:
     - images/tshirt.jpg
     - images/dress2.jpg
     - images/heel2.png
-
+    - images/earrings.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

@@ -36,20 +36,22 @@ class _WishlistState extends State<Wishlist> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-          appBar: AppBar(
-            backgroundColor: Colors.deepPurple,
-            title: Text(
-              'Wishlist',
-              style: TextStyle(
-                fontSize: 25.0,
-              ),
+        appBar: AppBar(
+          backgroundColor: Colors.deepPurple,
+          title: Text(
+            'Wishlist',
+            style: TextStyle(
+              fontSize: 25.0,
             ),
           ),
-          body: ListView.builder(
-              itemCount: favorite.length,
-              itemBuilder: (context, index) {
-                return favorite[index];
-              })),
+        ),
+        body: ListView.builder(
+          itemCount: favorite.length,
+          itemBuilder: (context, index) {
+            return favorite[index];
+          },
+        ),
+      ),
     );
   }
 }
@@ -117,7 +119,7 @@ class _FavoriteCardState extends State<FavoriteCard> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             _color = Colors.pink;
                           });

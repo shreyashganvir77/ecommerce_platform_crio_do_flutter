@@ -1,9 +1,12 @@
+import 'package:ecommerce_platform_crio_do/ui/myCart.dart';
+import 'package:ecommerce_platform_crio_do/ui/products.dart';
 import 'package:ecommerce_platform_crio_do/ui/wishlist.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/painting.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 List<Widget> products = [
   Padding(
@@ -64,9 +67,7 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: Text(
             'Porsio',
-            style: TextStyle(
-              fontSize: 25.0,
-            ),
+            style: GoogleFonts.roboto(fontSize: 25.0),
           ),
           actions: [
             Icon(
@@ -76,9 +77,14 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               width: 10.0,
             ),
-            Icon(
-              Icons.shopping_cart,
-              size: 28.0,
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart(),),);
+              },
+              child: Icon(
+                Icons.shopping_cart,
+                size: 28.0,
+              ),
             ),
             SizedBox(
               width: 20.0,
@@ -291,10 +297,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     'Top Store Nearby',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: GoogleFonts.roboto(fontSize: 20.0, fontWeight: FontWeight.w700)
                   ),
                   Container(
                     height: 30.0,
@@ -519,11 +522,16 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 4.0),
-                          child: Text(
-                            'Explore all',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14.0,
+                          child: GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Products(),),);
+                            },
+                            child: Text(
+                              'Explore all',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 14.0,
+                              ),
                             ),
                           ),
                         ),

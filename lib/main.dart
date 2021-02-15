@@ -3,6 +3,7 @@ import 'package:ecommerce_platform_crio_do/ui/orders.dart';
 import 'package:ecommerce_platform_crio_do/ui/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'ui/homepage.dart';
 
 void main() {
