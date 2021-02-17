@@ -1,6 +1,7 @@
 import 'package:ecommerce_platform_crio_do/ui/myCart.dart';
 import 'package:ecommerce_platform_crio_do/ui/products.dart';
 import 'package:ecommerce_platform_crio_do/ui/wishlist.dart';
+import 'package:ecommerce_platform_crio_do/ui/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -93,154 +94,7 @@ class _HomePageState extends State<HomePage> {
           elevation: 0.0,
           backgroundColor: Colors.deepPurple,
         ),
-        drawer: Drawer(
-          child: Column(
-            children: [
-              Container(
-                height: 180.0,
-                width: 310.0,
-                decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(30.0),
-                    ),
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomRight,
-                      colors: [Colors.pink, Colors.purple],
-                    )),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 28.0, left: 40.0),
-                      child: CircleAvatar(
-                        radius: 33.0,
-                        backgroundColor: Colors.white,
-                        child: Icon(
-                          Icons.person,
-                          size: 60.0,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40.0, top: 20.0),
-                      child: Text(
-                        'Swapnil Singh',
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(28.0),
-                child: ListView(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    GestureDetector(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.favorite,
-                            size: 28.0,
-                          ),
-                          SizedBox(
-                            width: 20.0,
-                          ),
-                          Text(
-                            'Wishlist',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400, fontSize: 24.0),
-                          ),
-                        ],
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Wishlist(),
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(
-                      height: 12.0,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.feedback_rounded,
-                          size: 28.0,
-                        ),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Text(
-                          'Feedback',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 12.0,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.logout,
-                          size: 28.0,
-                        ),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Text(
-                          'Logout',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 24.0),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 12.0,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.help_rounded,
-                          size: 28.0,
-                        ),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Text(
-                          'Help',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
+        drawer: CustomDrawer(),
         backgroundColor: Colors.white,
         body: ListView(
           children: [
@@ -453,45 +307,35 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 200.0,
-              width: 360.0,
-              child: Carousel(
-                overlayShadowColors: Colors.white,
-                overlayShadow: false,
-                dotBgColor: Colors.transparent,
-                borderRadius: true,
-                radius: Radius.circular(15.0),
-                boxFit: BoxFit.fill,
-                images: [
-                  Card(
-                    child: Image(
-                      image: AssetImage('images/fresh.jpg'),
-                      fit: BoxFit.fill,
-                    ),
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    semanticContainer: true,
-                    borderOnForeground: true,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    elevation: 5.0,
-                    shadowColor: Colors.white,
+            Padding(
+              padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+              child: Container(
+                height: 200.0,
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0),),
+                  elevation: 10.0,
+                  child: Carousel(
+                    dotBgColor: Colors.transparent,
+                    images: [
+                      Container(
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Image(image: AssetImage('images/shitts.jpg'),
+                        fit: BoxFit.cover,),
+                      ),
+                      Container(
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Image(image: AssetImage('images/fresh.jpg'),
+                          fit: BoxFit.cover,),
+                      ),
+                    ],
                   ),
-                  Card(
-                    child: Image(
-                      image: AssetImage('images/shitts.jpg'),
-                      fit: BoxFit.fill,
-                    ),
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    semanticContainer: true,
-                    borderOnForeground: true,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    elevation: 5.0,
-                  ),
-                ],
+                ),
               ),
             ),
             SizedBox(

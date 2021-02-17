@@ -1,3 +1,4 @@
+import 'package:ecommerce_platform_crio_do/ui/description.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -86,8 +87,6 @@ class _ProductsState extends State<Products> with SingleTickerProviderStateMixin
             backgroundColor: _animationColor.value,
             overlayColor: Colors.black,
             curve: Curves.bounceIn,
-            // backgroundColor: Colors.white,
-            // foregroundColor: Colors.black,
             elevation: 8.0,
             shape: CircleBorder(),
             children: [
@@ -182,134 +181,139 @@ class _FavoriteCardState extends State<FavoriteCard> {
   @override
   Color _color = Colors.grey;
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-      color: Colors.white,
-      elevation: 4.0,
-      borderOnForeground: true,
-      child: Container(
-        height: 180.0,
-        width: 400.0,
-        child: Row(
-          children: [
-            Container(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.0),
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Description(),),);
+      },
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+        color: Colors.white,
+        elevation: 4.0,
+        borderOnForeground: true,
+        child: Container(
+          height: 180.0,
+          width: 400.0,
+          child: Row(
+            children: [
+              Container(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: Image(
+                  image: AssetImage(widget.image),
+                  fit: BoxFit.fill,
+                  width: 170.0,
+                ),
               ),
-              child: Image(
-                image: AssetImage(widget.image),
-                fit: BoxFit.fill,
-                width: 170.0,
+              SizedBox(
+                width: 10.0,
               ),
-            ),
-            SizedBox(
-              width: 10.0,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 10.0,
-                ),
-                Container(
-                  width: 180.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        widget.name,
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _color = Colors.pink;
-                          });
-                        },
-                        child: Icon(
-                          Icons.favorite,
-                          size: 25.0,
-                          color: _color,
-                        ),
-                      ),
-                    ],
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 10.0,
                   ),
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                Text(
-                  widget.name,
-                  style: TextStyle(
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey,
-                  ),
-                ),
-                SizedBox(
-                  height: 35.0,
-                ),
-                Container(
-                  width: 200.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        height: 40.0,
-                        width: 70.0,
-                        decoration: BoxDecoration(
-                          color: Colors.deepPurple,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10.0),
-                              bottomLeft: Radius.circular(10.0)),
-                          boxShadow: kElevationToShadow[4],
+                  Container(
+                    width: 180.0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          widget.name,
+                          style: TextStyle(
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
                         ),
-                        child: Center(
-                          child: Text(
-                            widget.price,
-                            style: TextStyle(
-                              fontSize: 21.0,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _color = Colors.pink;
+                            });
+                          },
+                          child: Icon(
+                            Icons.favorite,
+                            size: 25.0,
+                            color: _color,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Text(
+                    widget.name,
+                    style: TextStyle(
+                      fontSize: 13.0,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 35.0,
+                  ),
+                  Container(
+                    width: 200.0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          height: 40.0,
+                          width: 70.0,
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10.0),
+                                bottomLeft: Radius.circular(10.0)),
+                            boxShadow: kElevationToShadow[4],
+                          ),
+                          child: Center(
+                            child: Text(
+                              widget.price,
+                              style: TextStyle(
+                                fontSize: 21.0,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Container(
-                        height: 40.0,
-                        width: 100.0,
-                        decoration: BoxDecoration(
-                          color: Colors.purple[300],
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(10.0),
-                              bottomRight: Radius.circular(10.0)),
-                          boxShadow: kElevationToShadow[4],
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Add to cart',
-                            style: TextStyle(
-                              fontSize: 17.0,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                        Container(
+                          height: 40.0,
+                          width: 100.0,
+                          decoration: BoxDecoration(
+                            color: Colors.purple[300],
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(10.0),
+                                bottomRight: Radius.circular(10.0)),
+                            boxShadow: kElevationToShadow[4],
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Add to cart',
+                              style: TextStyle(
+                                fontSize: 17.0,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 12.0,
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ],
+                        SizedBox(
+                          width: 12.0,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

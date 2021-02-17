@@ -22,6 +22,7 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
           appBar: AppBar(
             backgroundColor: Colors.deepPurple,
             title: Text(
@@ -30,11 +31,58 @@ class _CartState extends State<Cart> {
                   fontWeight: FontWeight.w500, fontSize: 22.0),
             ),
           ),
-          body: ListView.builder(
-            itemCount: CartItems.length,
-            itemBuilder: (context, index){
-              return CartItems[index];
-            },),
+          body: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: CartItems.length,
+                    itemBuilder: (context, index){
+                      return CartItems[index];
+                    },),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 50.0,
+                    width: 170.0,
+                    child: Center(
+                      child: Text(
+                        '₹ 6486',
+                        style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 25.0,
+                          color: Colors.deepPurple,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 50.0,
+                    width: 220.0,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), bottomLeft: Radius.circular(10.0),),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Place Order',
+                        style: GoogleFonts.inter(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:ecommerce_platform_crio_do/ui/discover.dart';
+import 'package:ecommerce_platform_crio_do/ui/myCart.dart';
 import 'package:ecommerce_platform_crio_do/ui/orders.dart';
 import 'package:ecommerce_platform_crio_do/ui/wishlist.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   int _page = 0;
-  List<Widget> Screens = [HomePage(), Discover(), Orders()];
+  List<Widget> Screens = [HomePage(), Discover(), Orders(), Cart()];
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
