@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:ecommerce_platform_crio_do/ui/sign_in.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
@@ -47,20 +48,25 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-              Container(
-                width: 150.0,
-                height: 40.0,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25.0),
-                ),
-                child: Center(
-                  child: Text(
-                    'Get Started',
-                    style: GoogleFonts.inter(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.deepPurple,
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn(),),);
+                },
+                child: Container(
+                  width: 150.0,
+                  height: 40.0,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Get Started',
+                      style: GoogleFonts.inter(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.deepPurple,
+                      ),
                     ),
                   ),
                 ),

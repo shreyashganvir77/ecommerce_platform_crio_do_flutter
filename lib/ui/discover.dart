@@ -1,6 +1,7 @@
 import 'package:ecommerce_platform_crio_do/ui/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 List<Widget> categoriesList = [
   Text('Grocery and Essentials',
@@ -41,77 +42,122 @@ List<Widget> categoriesList = [
     ),),
 ];
 List<Widget> shops = [
-  ListTile(
-    leading: Icon(Icons.shop, size: 30.0, color: Colors.black,),
-    title: Text('Pans Shop',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.w300,
-      ),),
+  Row(
+    children: [
+      Icon(Icons.shop, size: 25.0, color: Colors.black,),
+      SizedBox(
+        width: 15.0,
+      ),
+      Text('Pans Shop',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.w300,
+        ),),
+    ],
   ),
-  ListTile(
-    leading: Icon(Icons.voicemail_outlined, size: 30.0, color: Colors.black,),
-    title: Text('Clothing Debug',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.w300,
-      ),),
+  Row(
+    children: [
+      Icon(FontAwesome.shirtsinbulk, size: 25.0, color: Colors.black,),
+      SizedBox(
+        width: 15.0,
+      ),
+      Text('Clothing Debug',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.w300,
+        ),),
+    ],
   ),
-  ListTile(
-    leading: Icon(Icons.panorama, size: 30.0, color: Colors.black,),
-    title: Text('Dummy Shoe',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.w300,
-      ),),
+  Row(
+    children: [
+      Icon(AntDesign.fork, size: 25.0, color: Colors.black,),
+      SizedBox(
+        width: 15.0,
+      ),
+      Text('Dummy Shoe',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.w300,
+        ),),
+    ],
   ),
-  ListTile(
-    leading: Icon(Icons.mobile_friendly_sharp, size: 30.0, color: Colors.black,),
-    title: Text('Testing',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.w300,
-      ),),
+  Row(
+    children: [
+      Icon(Icons.mobile_friendly_sharp, size: 25.0, color: Colors.black,),
+      SizedBox(
+        width: 15.0,
+      ),
+      Text('Testing',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.w300,
+        ),),
+    ],
   ),
-  ListTile(
-    leading: Icon(Icons.square_foot, size: 30.0, color: Colors.black,),
-    title: Text('Footwear',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.w300,
-      ),),
+  Row(
+    children: [
+      Icon(Icons.square_foot, size: 25.0, color: Colors.black,),
+      SizedBox(
+        width: 15.0,
+      ),
+      Text('Footwear',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.w300,
+        ),),
+    ],
   ),
-  ListTile(
-    leading: Icon(Icons.sports_football, size: 30.0, color: Colors.black,),
-    title: Text('Dummy',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.w300,
-      ),),
+  Row(
+    children: [
+      Icon(Icons.sports_football, size: 25.0, color: Colors.black,),
+      SizedBox(
+        width: 15.0,
+      ),
+      Text('Dummy',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.w300,
+        ),),
+    ],
   ),
-  ListTile(
-    leading: Icon(Icons.collections_sharp, size: 30.0, color: Colors.black,),
-    title: Text('Cosmetic Debug',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.w300,
-      ),),
+  Row(
+    children: [
+      Icon(AntDesign.ellipsis1, size: 25.0, color: Colors.black,),
+      SizedBox(
+        width: 15.0,
+      ),
+      Text('Cosmetic Debug',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.w300,
+        ),),
+    ],
   ),
-  ListTile(
-    leading: Icon(Icons.data_usage_sharp, size: 30.0, color: Colors.black,),
-    title: Text('Dummy Dhop',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.w300,
-      ),),
+  Row(
+    children: [
+      Icon(Icons.data_usage_sharp, size: 25.0, color: Colors.black,),
+      SizedBox(
+        width: 15.0,
+      ),
+      Text('Dummy Shop',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.w300,
+        ),),
+    ],
   ),
-  ListTile(
-    leading: Icon(Icons.tv_rounded, size: 30.0, color: Colors.black,),
-    title: Text('TV Debug',
-      style: TextStyle(
-        fontSize: 30.0,
-        fontWeight: FontWeight.w300,
-      ),),
+  Row(
+    children: [
+      Icon(Icons.tv_rounded, size: 25.0, color: Colors.black,),
+      SizedBox(
+        width: 15.0,
+      ),
+      Text('TV Debug',
+        style: TextStyle(
+          fontSize: 30.0,
+          fontWeight: FontWeight.w300,
+        ),),
+    ],
   ),
 ];
 
@@ -257,10 +303,10 @@ class _DiscoverState extends State<Discover> {
             Padding(
               padding: const EdgeInsets.only(top:35.0, left: 40.0, right: 45.0),
               child: Container(
-                height: 500.0,
+                height: 535.0,
                 alignment: Alignment.center,
                 child: ListView.builder(
-                  itemCount: categoriesList.length,
+                  itemCount: _display.length,
                   itemBuilder: (context, index){
                     return Container(
                       decoration: BoxDecoration(

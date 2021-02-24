@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 List<Widget> products = [
@@ -221,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     storeNearby(
                       icon: Icon(
-                        Icons.panorama,
+                        FontAwesome5.bookmark,
                         color: Colors.black,
                         size: 45.0,
                       ),
@@ -323,6 +324,14 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Image(image: AssetImage('images/shitts.jpg'),
                         fit: BoxFit.cover,),
+                      ),
+                      Container(
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Image(image: AssetImage('images/poster.jpg'),
+                          fit: BoxFit.cover,),
                       ),
                       Container(
                         clipBehavior: Clip.antiAlias,
@@ -470,7 +479,7 @@ class storeNearby extends StatelessWidget {
           child: icon,
         ),
         Text(
-          'text',
+          text,
           style: TextStyle(fontSize: 12.0),
         ),
       ],
