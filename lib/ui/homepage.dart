@@ -1,6 +1,5 @@
 import 'package:ecommerce_platform_crio_do/ui/myCart.dart';
 import 'package:ecommerce_platform_crio_do/ui/products.dart';
-import 'package:ecommerce_platform_crio_do/ui/wishlist.dart';
 import 'package:ecommerce_platform_crio_do/ui/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';

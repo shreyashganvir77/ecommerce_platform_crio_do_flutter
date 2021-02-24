@@ -2,7 +2,7 @@ import 'package:ecommerce_platform_crio_do/ui/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-List<Widget> Categories = [
+List<Widget> categoriesList = [
   Text('Grocery and Essentials',
     style: TextStyle(
       fontSize: 30.0,
@@ -40,7 +40,7 @@ List<Widget> Categories = [
       fontWeight: FontWeight.w300,
     ),),
 ];
-List<Widget> Shops = [
+List<Widget> shops = [
   ListTile(
     leading: Icon(Icons.shop, size: 30.0, color: Colors.black,),
     title: Text('Pans Shop',
@@ -123,10 +123,11 @@ class Discover extends StatefulWidget {
 
 class _DiscoverState extends State<Discover> {
   Color _color1 = Colors.white;
-  Color _colorbg1 = Colors.deepPurple;
+  Color _colorBg1 = Colors.deepPurple;
   Color _color2 = Colors.white;
-  Color _colorbg2 = Colors.deepPurple;
-  var _display = Categories;
+  Color _colorBg2 = Colors.deepPurple;
+  var _display = categoriesList;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -168,7 +169,7 @@ class _DiscoverState extends State<Discover> {
                       width: 150.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: _colorbg1,
+                        color: _colorBg1,
                         borderRadius: BorderRadius.circular(19.0),
                       ),
                       child: Row(
@@ -192,16 +193,16 @@ class _DiscoverState extends State<Discover> {
                         print('detected');
                         if(_color1 == Colors.white){
                           _color1 = Colors.deepPurple;
-                          _colorbg1 = Colors.white;
+                          _colorBg1 = Colors.white;
                           _color2 = Colors.white;
-                          _colorbg2 = Colors.deepPurple;
-                          _display = Categories;
+                          _colorBg2 = Colors.deepPurple;
+                          _display = categoriesList;
                         }
                         else{
                           _color1 = Colors.white;
-                          _colorbg1 = Colors.deepPurple;
+                          _colorBg1 = Colors.deepPurple;
                           _color2 = Colors.white;
-                          _colorbg2 = Colors.deepPurple;
+                          _colorBg2 = Colors.deepPurple;
                         }
                       });
                     },
@@ -211,7 +212,7 @@ class _DiscoverState extends State<Discover> {
                       width: 150.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: _colorbg2,
+                        color: _colorBg2,
                         borderRadius: BorderRadius.circular(19.0),
                       ),
                       child: Row(
@@ -235,17 +236,17 @@ class _DiscoverState extends State<Discover> {
                         print('detected');
                         if(_color2 == Colors.white){
                           _color2 = Colors.deepPurple;
-                          _colorbg2 = Colors.white;
+                          _colorBg2 = Colors.white;
                           _color1 = Colors.white;
-                          _colorbg1 = Colors.deepPurple;
-                          _display = Shops;
+                          _colorBg1 = Colors.deepPurple;
+                          _display = shops;
                         }
                         else{
                           _color2 = Colors.white;
-                          _colorbg2 = Colors.deepPurple;
+                          _colorBg2 = Colors.deepPurple;
                           _color1 = Colors.deepPurple;
-                          _colorbg1 = Colors.white;
-                          _display = Categories;
+                          _colorBg1 = Colors.white;
+                          _display = categoriesList;
                         }
                       });
                     },
@@ -259,7 +260,7 @@ class _DiscoverState extends State<Discover> {
                 height: 500.0,
                 alignment: Alignment.center,
                 child: ListView.builder(
-                  itemCount: Categories.length,
+                  itemCount: categoriesList.length,
                   itemBuilder: (context, index){
                     return Container(
                       decoration: BoxDecoration(

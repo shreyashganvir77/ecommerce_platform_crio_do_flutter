@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_platform_crio_do/functionalities/products.dart';
 
 List<Widget> favorite = [
   FavoriteCard(
@@ -72,8 +71,9 @@ class FavoriteCard extends StatefulWidget {
 }
 
 class _FavoriteCardState extends State<FavoriteCard> {
-  @override
   Color _color = Colors.grey;
+  @override
+
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),

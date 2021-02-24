@@ -1,10 +1,9 @@
 import 'package:ecommerce_platform_crio_do/ui/discover.dart';
+import 'package:ecommerce_platform_crio_do/ui/login.dart';
 import 'package:ecommerce_platform_crio_do/ui/myCart.dart';
 import 'package:ecommerce_platform_crio_do/ui/orders.dart';
-import 'package:ecommerce_platform_crio_do/ui/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'ui/homepage.dart';
 
 void main() {
@@ -17,13 +16,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  @override
+
   int _page = 0;
-  List<Widget> Screens = [HomePage(), Discover(), Orders(), Cart()];
+  List<Widget> screenPages = [LoginPage(), Discover(), Orders(), Cart()];
+
+  @override
+
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Screens[_page],
+        body: screenPages[_page],
         bottomNavigationBar: CurvedNavigationBar(
           color: Colors.blue[800],
           buttonBackgroundColor: Colors.blue[800],

@@ -32,7 +32,6 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> with SingleTickerProviderStateMixin {
-  bool _open = false;
   Animation<double> _animation;
   Animation<double> _animatedIcon;
   Animation<Color> _animationColor;
@@ -178,8 +177,9 @@ class FavoriteCard extends StatefulWidget {
 }
 
 class _FavoriteCardState extends State<FavoriteCard> {
-  @override
   Color _color = Colors.grey;
+  @override
+
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
