@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'mainpage.dart';
 import 'package:ecommerce_platform_crio_do/functionalities/authService.dart';
 
-class SignUp extends StatefulWidget {
+class EmailSignIn extends StatefulWidget {
   @override
-  _SignUpState createState() => _SignUpState();
+  _EmailSignInState createState() => _EmailSignInState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _EmailSignInState extends State<EmailSignIn> {
 
   AuthService _auth = AuthService();
   String _email;
@@ -31,7 +31,7 @@ class _SignUpState extends State<SignUp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Sign Up with Email',
+                'Sign In with Email',
                 style: GoogleFonts.inter(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
@@ -112,7 +112,7 @@ class _SignUpState extends State<SignUp> {
                 padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                 child: GestureDetector(
                   onTap: () async{
-                    dynamic result = await _auth.registerEmail(_email, _password);
+                    dynamic result = await _auth.signInEmail(_email, _password);
                     if(result==null){
                       print('Error in Signing in');
                     }
@@ -130,7 +130,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     child: Center(
                       child: Text(
-                        'Sign Up',
+                        'Sign In',
                         style: GoogleFonts.inter(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
@@ -138,47 +138,6 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 28.0,
-              ),
-              Text(
-                'OR',
-                style: GoogleFonts.inter(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 27.0,
-                ),
-              ),
-              SizedBox(
-                height: 28.0,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 52.0, right: 52),
-                child: Container(
-                  height: 45.0,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(23.0),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image(image: AssetImage('images/google.png'), height: 26.0,),
-                      SizedBox(
-                        width: 20.0,
-                      ),
-                      Text(
-                        'Sign Up with Google',
-                        style: GoogleFonts.inter(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18.0,
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ),

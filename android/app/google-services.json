@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "732526371162",
+    "project_id": "criopractice",
+    "storage_bucket": "criopractice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732526371162:android:706261aba83d25e24a5363",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce_platform_crio_do"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732526371162-554acs5qvjl5qb7ocm8iaroaig70s5um.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnSQBRMGfcY_Qnd95wYxlPqeA8yP_BzWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732526371162-554acs5qvjl5qb7ocm8iaroaig70s5um.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
